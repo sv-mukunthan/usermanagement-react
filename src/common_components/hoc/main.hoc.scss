@@ -1,0 +1,32 @@
+@import '../../index.scss';
+
+.main_hoc {
+  background-color: $primaryColor;
+  width: 100%;
+  height: 100%;
+  // padding: 1em 1em 0 1em;
+
+  .main_component {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    .main_tabs{
+      padding: 1em;
+      width: 20%;
+
+      .side_bar{
+        color: blanchedalmond;
+
+        .title_content {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+    .main_body {
+      width: 80%;
+    }
+  }
+}
