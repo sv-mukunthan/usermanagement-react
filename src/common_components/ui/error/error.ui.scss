@@ -1,0 +1,9 @@
+@import '../../../index.scss';
+
+.error {
+  font-size: '14px';
+  font-weight: '500';
+  padding: '0.5em 0 0 1em';
+  color: $error;
+  padding: 0.5em;
+}
