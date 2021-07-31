@@ -20,14 +20,13 @@ const User = (props: any) => {
 
   useEffect(() => {
     getUser();
-    getUserList({ limit: 1, page: 1 });
+    getUserList({ limit: 20, page: 1 });
   },[])
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log("token", token)
+    // console.log("token", token)
     if(!token) {
-      console.log("token illa");
       props.history.push('/login');
     }
   }, []);
@@ -53,7 +52,7 @@ const User = (props: any) => {
 
   const loadMore = async() => {
     try {
-      const data: any = await userList({ page: state.page+1, limit: 1, search: "" });
+      const data: any = await userList({ page: state.page+1, limit: 20, search: "" });
       setState({ hasMore: data.data.hasNextPage, page: state.page+1 })
       setUserList([...users, ...data.data.docs]);
     } catch(err) {
@@ -78,7 +77,7 @@ const User = (props: any) => {
         draggable: true,
         progress: undefined,
       });
-      getUserList({ limit: state.page * 1, page: 1 });
+      getUserList({ limit: state.page * 20, page: 1 });
       setState({ open: false, currentUser: {} });
     } catch(err) {
       toast.error(err.data ? err.data.message : err , {
